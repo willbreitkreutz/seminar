@@ -1,20 +1,22 @@
 import React from 'react';
-
 import Header from "./Header";
 import Footer from "./Footer";
-import CounterTotal from "./CounterTotal"
+import { connect } from 'redux-bundler-react';
 
-const App = () => {
-
+const App = ({ route: Route }) => {
   return (
-    <div className="App">
+    <div>
       <Header />
-      <hr />
-      <CounterTotal />
+
+      <Route />
+      
       <hr />
       <Footer />
     </div>
   );
 }
 
-export default App;
+export default connect(
+  'selectRoute',
+  App
+);
