@@ -2,6 +2,7 @@ import { createSelector } from 'redux-bundler';
 
 const BAGS_INCREMENT = 'BAGS_INCREMENT';
 const BAGS_DECREMENT = 'BAGS_DECREMENT';
+const BAGS_COUNT_CHANGE = 'BAGS_COUNT_CHANGE';
 
 export default {
   name: 'bags',
@@ -18,6 +19,8 @@ export default {
     return (state = initialData, { type, payload }) => {
       switch(type){
         case BAGS_INCREMENT:
+        case BAGS_DECREMENT:
+        case BAGS_COUNT_CHANGE:
           return Object.assign({}, state, payload);
         default:
           return state;
@@ -95,6 +98,33 @@ export default {
         }
       })
     }
+  },
+
+  doBagsPersonalSet: (newCount) => ({ dispatch, store }) => {
+    dispatch({
+      type: BAGS_COUNT_CHANGE,
+      payload: {
+        personalCount: newCount
+      }
+    })
+  },
+
+  doBagsCarryonSet: (newCount) => ({ dispatch, store }) => {
+    dispatch({
+      type: BAGS_COUNT_CHANGE,
+      payload: {
+        carryonCount: newCount
+      }
+    })
+  },
+
+  doBagsCheckedSet: (newCount) => ({ dispatch, store }) => {
+    dispatch({
+      type: BAGS_COUNT_CHANGE,
+      payload: {
+        checkedCount: newCount
+      }
+    })
   },
 
   selectBagsPersonalCount: (state) => {

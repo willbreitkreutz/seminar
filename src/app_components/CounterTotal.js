@@ -1,48 +1,54 @@
-import React, { useState } from "react";
-
+import React from "react";
+import { connect } from 'redux-bundler-react';
 import Counter from "./Counter";
 
-const weights = {
-  personal: 10,
-  carryon: 30,
-  checked: 55
-};
-
-export default function CounterTotal() {
-  const [personalCount, setPersonalCount] = useState(0);
-  const [carryonCount, setCarryonCount] = useState(0);
-  const [checkedCount, setCheckedCount] = useState(0);
-
-  const total =
-    personalCount * weights.personal +
-    carryonCount * weights.carryon +
-    checkedCount * weights.checked;
-
-  return (
-    <div>
-      <div style={{margin: 20}}>
-        <h1>{`Total: ${total}`}</h1>
-      </div>
+export default connect(
+  'selectBagsPersonalCount',
+  'selectBagsCarryonCount',
+  'selectBagsCheckedCount',
+  'selectBagsPersonalWeight',
+  'selectBagsCarryonWeight',
+  'selectBagsCheckedWeight',
+  'selectBagsTotalWeight',
+  'doBagsPersonalSet',
+  'doBagsCarryonSet',
+  'doBagsCheckedSet',
+  function CounterTotal({
+    bagsPersonalCount, 
+    bagsCarryonCount,
+    bagsCheckedCount,
+    bagsPersonalWeight, 
+    bagsCarryonWeight,
+    bagsCheckedWeight,
+    bagsTotalWeight,
+    doBagsPersonalSet,
+    doBagsCarryonSet,
+    doBagsCheckedSet,
+  }) {
+    return (
       <div>
-        <Counter
-          count={personalCount}
-          setCount={setPersonalCount}
-          weight={weights.personal}
-          title={"Personal Item"}
-        />
-        <Counter
-          count={carryonCount}
-          setCount={setCarryonCount}
-          weight={weights.carryon}
-          title={"Carry-On Bag"}
-        />
-        <Counter
-          count={checkedCount}
-          setCount={setCheckedCount}
-          weight={weights.checked}
-          title={"Checked Bag"}
-        />
+        
+        <div>
+          <Counter
+            count={bagsPersonalCount}
+            setCount={doBagsPersonalSet}
+            weight={bagsPersonalWeight}
+            title={"Personal Item"}
+          />
+          <Counter
+            count={bagsCarryonCount}
+            setCount={doBagsCarryonSet}
+            weight={bagsCarryonWeight}
+            title={"Carry-On Bag"}
+          />
+          <Counter
+            count={bagsCheckedCount}
+            setCount={doBagsCheckedSet}
+            weight={bagsCheckedWeight}
+            title={"Checked Bag"}
+          />
+        </div>
       </div>
-    </div>
-  );
-}
+    );
+  }
+)
