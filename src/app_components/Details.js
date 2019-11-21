@@ -7,11 +7,16 @@ export default connect(
     return (
       <div>
         <h1>{ details.title }</h1>
-        <ul>
+        <ul className="list-group">
           {
             details.items.map((item, i) => {
               return (
-                <li key={i}>{ `Bag ${i+1}: added at ${item.time}` }</li>
+                <li 
+                  className="list-group-item list-group-item-action"
+                  key={i}
+                >
+                  { `Bag ${i+1}: added at ${item.time}` }
+                </li>
               )
             })
           }

@@ -6,7 +6,10 @@ import { getNavHelper } from 'internal-nav-helper';
 
 const App = ({ route: Route, doUpdateUrl }) => {
   return (
-    <div onClick={ getNavHelper(doUpdateUrl) }>
+    <div 
+      className="container"
+      onClick={ getNavHelper(doUpdateUrl) }
+    >
       <Header />
 
       <Route />

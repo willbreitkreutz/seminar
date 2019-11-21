@@ -4,8 +4,8 @@ import { connect } from 'redux-bundler-react';
 function Header({ bagsTotalWeight }) {
     return (
         <>
-            <div style={{margin: 20, float: 'right'}}>
-                <h1>{`Total: ${bagsTotalWeight}`}</h1>
+            <div className="float-right">
+              <h2>{`Total: ${bagsTotalWeight}`}</h2>
             </div>
             <h2><a href="/">Counter App</a></h2>
         </>

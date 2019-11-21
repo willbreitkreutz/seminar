@@ -4,6 +4,7 @@ import createStore from './app_bundles';
 import { Provider } from 'redux-bundler-react';
 import cache from './utils/cache';
 
+import './css/bootstrap/css/bootstrap.superhero.min.css';
 import './css/index.css';
 import App from './app_components/App';
 
