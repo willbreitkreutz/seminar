@@ -7,7 +7,7 @@ function Header({ bagsTotalWeight }) {
             <div style={{margin: 20, float: 'right'}}>
                 <h1>{`Total: ${bagsTotalWeight}`}</h1>
             </div>
-            <h2>Counter App</h2>
+            <h2><a href="/">Counter App</a></h2>
         </>
     )
 }

@@ -9,9 +9,12 @@ export default connect(
   'selectBagsPersonalWeight',
   'selectBagsCarryonWeight',
   'selectBagsCheckedWeight',
-  'doBagsPersonalSet',
-  'doBagsCarryonSet',
-  'doBagsCheckedSet',
+  'doBagsPersonalAdd',
+  'doBagsCarryonAdd',
+  'doBagsCheckedAdd',
+  'doBagsPersonalRemove',
+  'doBagsCarryonRemove',
+  'doBagsCheckedRemove',
   function CounterTotal({
     bagsPersonalCount, 
     bagsCarryonCount,
@@ -19,30 +22,39 @@ export default connect(
     bagsPersonalWeight, 
     bagsCarryonWeight,
     bagsCheckedWeight,
-    doBagsPersonalSet,
-    doBagsCarryonSet,
-    doBagsCheckedSet,
+    doBagsPersonalAdd,
+    doBagsCarryonAdd,
+    doBagsCheckedAdd,
+    doBagsPersonalRemove,
+    doBagsCarryonRemove,
+    doBagsCheckedRemove,
   }) {
     return (
       <div>
         <div>
           <Counter
             count={bagsPersonalCount}
-            setCount={doBagsPersonalSet}
+            onAdd={doBagsPersonalAdd}
+            onRemove={doBagsPersonalRemove}
             weight={bagsPersonalWeight}
             title={"Personal Item"}
+            detailsLink={'/personal'}
           />
           <Counter
             count={bagsCarryonCount}
-            setCount={doBagsCarryonSet}
+            onAdd={doBagsCarryonAdd}
+            onRemove={doBagsCarryonRemove}
             weight={bagsCarryonWeight}
             title={"Carry-On Bag"}
+            detailsLink={'/carryon'}
           />
           <Counter
             count={bagsCheckedCount}
-            setCount={doBagsCheckedSet}
+            onAdd={doBagsCheckedAdd}
+            onRemove={doBagsCheckedRemove}
             weight={bagsCheckedWeight}
             title={"Checked Bag"}
+            detailsLink={'/checked'}
           />
         </div>
       </div>

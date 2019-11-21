@@ -2,10 +2,11 @@ import React from 'react';
 import Header from "./Header";
 import Footer from "./Footer";
 import { connect } from 'redux-bundler-react';
+import { getNavHelper } from 'internal-nav-helper';
 
-const App = ({ route: Route }) => {
+const App = ({ route: Route, doUpdateUrl }) => {
   return (
-    <div>
+    <div onClick={ getNavHelper(doUpdateUrl) }>
       <Header />
 
       <Route />
@@ -18,5 +19,6 @@ const App = ({ route: Route }) => {
 
 export default connect(
   'selectRoute',
+  'doUpdateUrl',
   App
 );

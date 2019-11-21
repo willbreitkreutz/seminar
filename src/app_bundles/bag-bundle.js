@@ -20,5 +20,35 @@ export default {
         checkedCount * checkedWeight
       )
     }
+  ),
+  selectBagDetailsByCategory: createSelector(
+    'selectRouteParams',
+    'selectBagsPersonalItems',
+    'selectBagsCarryonItems',
+    'selectBagsCheckedItems',
+    (params, personal, carryon, checked) => {
+      switch(params.category){
+        case 'personal':
+          return {
+            title: 'Personal Items',
+            items: personal
+          }
+        case 'carryon':
+          return {
+            title: 'Carry-On Items',
+            items: carryon
+          }
+        case 'checked':
+          return {
+            title: 'Checked Items',
+            items: checked
+          }
+        default:
+          return {
+            title: `Sorry I couldn't Find what you are looking for`,
+            items: []
+          }
+      }
+    }
   )
 }
