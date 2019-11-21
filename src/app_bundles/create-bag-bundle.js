@@ -89,7 +89,9 @@ export default (options) => {
         type: BAGS_REMOVE,
         payload: [ ...bags ]
       })
-    }
+    },
+
+    persistActions: [BAGS_ADD, BAGS_REMOVE]
   }
 
 }
