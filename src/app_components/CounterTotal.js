@@ -9,7 +9,6 @@ export default connect(
   'selectBagsPersonalWeight',
   'selectBagsCarryonWeight',
   'selectBagsCheckedWeight',
-  'selectBagsTotalWeight',
   'doBagsPersonalSet',
   'doBagsCarryonSet',
   'doBagsCheckedSet',
@@ -20,14 +19,12 @@ export default connect(
     bagsPersonalWeight, 
     bagsCarryonWeight,
     bagsCheckedWeight,
-    bagsTotalWeight,
     doBagsPersonalSet,
     doBagsCarryonSet,
     doBagsCheckedSet,
   }) {
     return (
       <div>
-        
         <div>
           <Counter
             count={bagsPersonalCount}
